@@ -5,7 +5,7 @@
 ThunderDOM/e is a super lightweight frontend library (Just 2kb un-minified) with no build step! ThunderDOM/e makes it easier to create web components without using huge bloated frameworks like Vue, Svelt, React or Angular or even libs like Solid or jQuery.
 
 ThunderDOM/e components are based off of native web component architecture and use the shadow DOM which has been supported by all browsers since 2020.
-This simplifies the process of component creation and aligns the code with other languages using properties, getters, setters and events reducing the cognitive load of the developer and the learning curve of the library.
+This simplifies the process of component creation and aligns the code with other languages using properties, getters, setters and events, reducing the cognitive load of the developer and the learning curve of the library.
 
 It's so simple, a developer who knows javascript at the base level can learn in 5 minutes.
 
