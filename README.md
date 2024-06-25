@@ -56,15 +56,13 @@ This means you can use any backend to render your components easily, here is an 
     <my-button id="button-@i"></my-button>
 }
 ```
-This will output a button with an id of "button-0" to "button-9". You can even use these id's for CSS selection of inner shadow dom elements from a light dom CSS file allowing you to style your ThunderDOM components  on a per component AND per page basis.
+This will output a button with an id of "button-0" to "button-9". You can even use these id's for CSS selection of inner shadow dom elements allowing you to style your ThunderDOM components on a per element basis.
 ```css
 /*my-button.css*/
 button {
    background-color: yellowgreen;
  }
-```
-```css
-/*page.css*/
+/*If the shadow dom root (root component / parent) has id "button-1"*/
 :host-context(#button-1) button {
    background-color: indigo;
  }
