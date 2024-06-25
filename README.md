@@ -94,7 +94,7 @@ Allows for binding events easily to your component's elements.
 ```js
 this.getElById(id);
 ```
-Returns an element:  Param = An ID for the component's inner element you want to select.
+Returns an element:  Param = A query (#id / .classname) for the root component's inner element you want to select.
 ```js
 this.getEl(queryString);
 ```
