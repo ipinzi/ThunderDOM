@@ -1,3 +1,9 @@
+/**
+ * @file thunderDOM.js
+ * @brief ThunderDOM/e
+ * @author Ben Simpson (ipinzi) - Arrogant Pixel
+ **/
+
 export function getFileContents(filePath) {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', filePath, false); // Synchronous request
