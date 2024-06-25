@@ -34,7 +34,7 @@ class MyButton extends TD.ThunderDOMElement{
     //DOM Element HTML, listener bindings and functions
     constructor() {
         super();
-        this.root = this.component(()=>{
+        this.component(()=>{
             return `<button id="foo">Click Me</button>`
         });
         //this.iCss(`#foo{background-color: green;}`); <-- You can also write inline CSS!
@@ -69,6 +69,8 @@ button {
 ```
 This CSS will style all 10 of the button's background color to "yellowgreen" via the component CSS and style just "button-1"'s background colour to "indigo".
 You can also write inline CSS with ```iCss("button{ background-color: yellowgreen; }")``` or use a lib like Tailwind.
+
+```this.shadowRoot``` returns the root element of the component we created when calling ```component()```.
 
 ### Script Reference:
 ```js

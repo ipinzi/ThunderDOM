@@ -46,9 +46,9 @@ export class ThunderDOMElement extends HTMLElement{
     }
     
     getElById(id){
-        return this.root.getElementById(id);
+        return this.shadowRoot.getElementById(id);
     }
     getEl(querySelector){
-        return this.root.querySelector(querySelector);
+        return this.shadowRoot.querySelector(querySelector);
     }
 }
