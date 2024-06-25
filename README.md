@@ -37,8 +37,8 @@ class MyButton extends TD.ThunderDOMElement{
         this.root = this.component(()=>{
             return `<button id="foo">Click Me</button>`
         });
-        //this.iCss(`#foo{background-color: green;}`);
-        this.css('/css/site.css');
+        //this.iCss(`#foo{background-color: green;}`); <-- You can also write inline CSS!
+        this.css('/css/my-button.css');
         this.bind("#foo","click",(e)=>{this.clickCount++});
     }
 }
@@ -69,7 +69,8 @@ button {
    background-color: indigo;
  }
 ```
-This CSS will style all 10 of the button's background color to "yellowgreen" via the component CSS and style just "button-1"'s background colour to "indigo".
+This CSS will style all 10 of the button's background color to "yellowgreen" via the component CSS and style just "button-1"'s background colour to "indigo" via the page CSS.
+You can also write inline CSS with ```iCss("button{ background-color: yellowgreen; }")``` or use a lib like Tailwind.
 
 ### Script Reference:
 ```js
