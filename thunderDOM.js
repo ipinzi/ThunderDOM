@@ -6,6 +6,8 @@
 
 console.log("Entering ThunderDOMe...");
 
+let thunderDOMClasses = {};
+
 export class ThunderDOMElement extends HTMLElement{
    constructor(){
         super();
@@ -79,11 +81,16 @@ export function getFileContents(filePath) {
         return null;
     }
 }
-export function BindThunderDOM(classMap){
+export function DefineComponent(name, thunderDomClass){
+    thunderDOMClasses[name] = thunderDomClass;
+}
+export function BindThunderDOM(classMap = {}){
     const objs = [];
-    for(const property in classMap){
+    let map = thunderDOMClasses;
+    if(Object.keys(classMap).length > 0)  map = classMap;
+    for(const property in map){
         const attribute = `[data-${property}]`
-        const thunderDOMElementClass = classMap[property];
+        const thunderDOMElementClass = map[property];
         
         const elements = document.querySelectorAll(attribute);
         elements.forEach((el)=>{
@@ -97,3 +104,8 @@ export function BindThunderDOM(classMap){
     console.log("All components bound successfully. Welcome to the ThunderDOMe")
     return objs;
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const keys = Object.keys(thunderDOMClasses);
+    if(keys.length > 0) BindThunderDOM();
+});

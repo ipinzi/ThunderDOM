@@ -48,6 +48,8 @@ class MyButton extends TD.ThunderDOMElement{
 customElements.define("my-button", MyButton);
 
 ```
+Components may include as many HTML elements as you need but for this simple example we are just making a button.
+
 This allows you to add a button to any page for client side js rendering:
 ```html
 <my-button></my-button>
@@ -110,18 +112,13 @@ class MySsrButton extends TD.ThunderDOMElementSSR{
 ```
 Its actually far simpler than the client side example. You can see that everything is the same minus a few lines of code and we are now extending `ThunderDOMElementSSR`.
 
-Your sever side HTML markup should include an attribute of "data-(your element name)"
-
-Dotnet Core Example:
-```html
-    @for (var i = 0; i < 10; i++)
-    {
-        <button id="foo" data-my-ssr-button>Click Me</button>
-    }
+You can declare your component underneath the class object just like with client rendered components but we use a different function this time.
+```js
+TD.DefineComponent("my-ssr-button", MySsrButton);
 ```
+This will make ThunderDOM/e aware of your button so that it can carry out automatic binding on DOM load.
 
-Now you might be asking, where do we "declare" the component? We don't have to we're just going to bind events to our server sent components after the DOM has loaded with the BindThunderDOM function.
-Simply add your classes along side their element name into the initiation map like so:
+If you want to take care of binding manually or you want to have all of your components in a manifest style structure, **INSTEAD OF** declaring the component, you can simply add your classes along side their element name into the initiation map manually like so:
 
 ```js
 document.addEventListener("DOMContentLoaded", () => {
@@ -131,6 +128,16 @@ document.addEventListener("DOMContentLoaded", () => {
         //add as many components you want to bind!
     });
 });
+```
+
+Your sever side HTML markup should include an attribute of "data-(your element name)"
+
+Dotnet Core Example:
+```html
+    @for (var i = 0; i < 10; i++)
+    {
+        <button id="foo" data-my-ssr-button>Click Me</button>
+    }
 ```
 
 And that's it. Interactivity is now bound to your server rendered components on the frontend! I don't know why React makes "hydration" look so difficult. :D
