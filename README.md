@@ -3,7 +3,7 @@
 ## Welcome to the ThunderDOM/e!
 ### Now with added SSR Elements. Mmm.. delicious!
 
-ThunderDOM/e is a super lightweight frontend library (Just 2kb un-minified) with no build step! ThunderDOM/e makes it easier to create web components without using huge bloated frameworks like Vue, Svelt, React or Angular or even libs like Solid or jQuery.
+ThunderDOM/e is a super lightweight frontend library (Just 4kb un-minified) with no build step! ThunderDOM/e makes it easier to create web components without using huge bloated frameworks like Vue, Svelt, React or Angular or even libs like Solid or jQuery.
 
 ThunderDOM/e components are based off of native web component architecture and use the shadow DOM which has been supported by all browsers since 2020.
 This simplifies the process of component creation and aligns the code with other languages using properties, getters, setters and events, reducing the cognitive load of the developer and the learning curve of the library.
@@ -139,8 +139,16 @@ Dotnet Core Example:
         <button id="foo" data-my-ssr-button>Click Me</button>
     }
 ```
+As for binding functionality dynamically post DOM update. You can use:
+```js
+    TD.BindThunderDOMElement(element,"my-ssr-button", MySsrButton);
+```
+To bind a component individually at any time.
+
+If you are using HTMX to load dynamic components this would ideally be done in the "hx-on::after-request" where you can retrieve the target element.
 
 And that's it. Interactivity is now bound to your server rendered components on the frontend! I don't know why React makes "hydration" look so difficult. :D
+
 
 ### Script Reference:
 ```js
@@ -178,7 +186,19 @@ Shorthand for ```this.root.querySelector(query);```, selects a shadow DOM elemen
 ```js
 this.setBindings();
 ```
-The function where you add the event bindings for your SSR components.
+The function that sets the event bindings for your SSR components.
+```js
+TD.DefineComponent("my-ssr-button", MySsrButton);
+```
+Define a component so it can be bound to the ThunderDOMe (will be done automatically on dom load)
+```js
+TD.BindThunderDOMElement(element,"my-ssr-button", MySsrButton);
+```
+Bind ssr component to dom element individually
+```js
+TD.BindThunderDOM(classMap);
+```
+Bind all elements (run on document ready for undefined components)
 
 ### A note from Ipinzi (Arrogant Pixel)
 

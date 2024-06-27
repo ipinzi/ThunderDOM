@@ -84,6 +84,15 @@ export function getFileContents(filePath) {
 export function DefineComponent(name, thunderDomClass){
     thunderDOMClasses[name] = thunderDomClass;
 }
+export function BindThunderDOMElement(element, name, thunderDomClass){
+
+    const attribute = `[data-${name}]`
+    let thunderDOMElement = new thunderDomClass(element);
+    thunderDOMElement.name = name;
+    thunderDOMElement.attribute = attribute;
+    thunderDOMElement.setBindings();
+    return thunderDOMElement;
+}
 export function BindThunderDOM(classMap = {}){
     const objs = [];
     let map = thunderDOMClasses;
