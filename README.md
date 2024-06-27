@@ -52,7 +52,7 @@ This allows you to add a button to any page via either frontend or server-side r
 ```html
 <my-button></my-button>
 ```
-This means you can use any backend to render your components easily, here is an example in ASP .NET Core!
+This means you can use any backend to output your components easily, here is an example in ASP .NET Core!
 ```html
 @for (var i = 0; i < 10; i++)
 {
@@ -100,7 +100,7 @@ class MySsrButton extends TD.ThunderDOMElementSSR{
     set clickCount(value) {
         this._clickCount = value;
         //const el = this.getEl("#inner-foo"); <--you can still select children
-        this.root.textContent = `Click Me (${value} clicks)`;
+        this.root.textContent = `Click Me (${value} clicks)`; //<--this.root to select root element 
     }
     //DOM Element HTML, listener bindings and functions
     setBindings(){
