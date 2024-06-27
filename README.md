@@ -102,7 +102,7 @@ class MySsrButton extends TD.ThunderDOMElementSSR{
         //const el = this.getEl("#inner-foo"); <--you can still select children
         this.root.textContent = `Click Me (${value} clicks)`; //<--this.root to select root element 
     }
-    //DOM Element HTML, listener bindings and functions
+    //listener bindings and functions
     setBindings(){
         this.bind(this.root,"click",(e)=>{this.clickCount++});
     }
