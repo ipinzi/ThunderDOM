@@ -48,11 +48,11 @@ class MyButton extends TD.ThunderDOMElement{
 customElements.define("my-button", MyButton);
 
 ```
-This allows you to add a button to any page via either frontend or server-side rendering like so:
+This allows you to add a button to any page for client side js rendering:
 ```html
 <my-button></my-button>
 ```
-This means you can use any backend to output your components easily, here is an example in ASP .NET Core!
+This means you can use any backend or static html doc to output your components easily, here is an example in ASP .NET Core!
 ```html
 @for (var i = 0; i < 10; i++)
 {
